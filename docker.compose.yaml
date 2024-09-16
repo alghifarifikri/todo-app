@@ -1,0 +1,19 @@
+version: "3"
+services:
+  backend:
+    build: ./todo-service
+    ports:
+      - "4040:4040"
+    volumes:
+      - ./todo-service:/app
+    environment:
+      NODE_ENV: production
+
+  frontend:
+    build: ./todo-ui
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./todo-ui:/app
+    environment:
+      NODE_ENV: production
